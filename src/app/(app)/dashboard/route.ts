@@ -8,11 +8,11 @@ export async function GET() {
   let redirectUrl = "";
 
   if (userRole === "ADMIN") {
-    redirectUrl = "/dashboard/admin";
+    redirectUrl = "/admin/dashboard";
   } else if (userRole === "TEACHER") {
-    redirectUrl = "/dashboard/teacher";
+    redirectUrl = "/teacher/dashboard";
   } else if (userRole === "STUDENT") {
-    redirectUrl = "/dashboard/student";
+    redirectUrl = "/student/dashboard";
   } else {
     redirectUrl = "/role-selection";
   }
