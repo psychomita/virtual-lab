@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "clean": "rm -rf .next",
     "email": "email dev -p 3600 -d ./src/emails",
     "format": "prettier --write .",
     "db:push": "prisma db push",
