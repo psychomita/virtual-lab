@@ -51,6 +51,7 @@ const subjects = [
     color: "from-amber-500/20 to-amber-500/5",
     hoverColor: "group-hover:from-amber-500/30 group-hover:to-amber-500/10",
     iconBg: "bg-amber-500/10",
+    link: "/simulations/phy"
   },
   {
     id: 2,
