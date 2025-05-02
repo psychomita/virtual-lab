@@ -27,6 +27,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { GoogleTranslateDropdown } from "@/components/google-translate";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -90,6 +91,7 @@ export default function Home() {
           </nav>
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-2">
+              <GoogleTranslateDropdown />
               <ModeToggle />
               <Button
                 variant="ghost"
@@ -252,7 +254,7 @@ export default function Home() {
           className="relative w-full py-12 md:py-24 lg:py-32"
         >
           {/* Decorative elements */}
-          <div className="pointer-events-none absolute top-0 left-0 h-20 w-full bg-gradient-to-b from-white/0 to-blue-50/50 dark:from-gray-950 dark:to-gray-950"></div>
+
           <div className="absolute -top-10 left-1/4 h-20 w-20 rounded-full bg-green-300 opacity-20 blur-xl"></div>
           <div className="absolute top-40 right-1/4 h-32 w-32 rounded-full bg-blue-300 opacity-20 blur-xl"></div>
 
@@ -346,8 +348,6 @@ export default function Home() {
           id="disciplines"
           className="relative w-full overflow-hidden py-12 md:py-24 lg:py-32"
         >
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/80 to-blue-50/80 dark:from-black dark:to-indigo-950/80"></div>
-
           {/* Floating science elements */}
           <div className="animate-float absolute top-20 left-10 h-16 w-16 opacity-20">
             <Atom className="h-full w-full text-blue-500" />
@@ -380,9 +380,9 @@ export default function Home() {
             </div>
             <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
               <div className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-slate-800">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <div className="absolute -right-2 -bottom-2 h-32 w-32 opacity-10">
-                  <Beaker className="h-full w-full text-blue-500" />
+                  <Beaker className="h-full w-full text-emerald-500" />
                 </div>
                 <Image
                   src="/images/chemlab.jpg"
@@ -393,30 +393,31 @@ export default function Home() {
                 />
                 <div className="relative z-10 flex flex-col gap-2">
                   <div className="flex items-center gap-2">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-blue-500 text-white shadow-lg">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-200 to-emerald-600 text-white shadow-lg">
                       <Beaker className="h-5 w-5" />
                     </div>
-                    <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    <h3 className="text-2xl font-bold text-emerald-500 dark:text-emerald-500">
                       Chemistry
                     </h3>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300">
-                    Mix colorful chemicals, conduct reactions, and discover the
-                    molecular world through vibrant experiments.
+                    Conduct reactions with chemicals, and discover the molecular
+                    world through vibrant experiments.
                   </p>
                   <Link
                     href="/explore/chemistry"
-                    className="mt-2 inline-flex items-center font-medium text-blue-600 hover:underline dark:text-blue-400"
+                    className="mt-2 inline-flex items-center font-medium text-emerald-500 hover:underline dark:text-emerald-500"
                   >
                     Explore Chemistry Labs
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </div>
+
               <div className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-slate-800">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <div className="absolute -right-2 -bottom-2 h-32 w-32 opacity-10">
-                  <Atom className="h-full w-full text-purple-500" />
+                  <Atom className="h-full w-full text-amber-500" />
                 </div>
                 <Image
                   src="/images/phylab.jpg"
@@ -427,10 +428,10 @@ export default function Home() {
                 />
                 <div className="relative z-10 flex flex-col gap-2">
                   <div className="flex items-center gap-2">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 text-white shadow-lg">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-200 to-amber-600 text-white shadow-lg">
                       <Atom className="h-5 w-5" />
                     </div>
-                    <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                    <h3 className="text-2xl font-bold text-amber-500 dark:text-amber-500">
                       Physics
                     </h3>
                   </div>
@@ -440,17 +441,18 @@ export default function Home() {
                   </p>
                   <Link
                     href="/explore/physics"
-                    className="mt-2 inline-flex items-center font-medium text-purple-600 hover:underline dark:text-purple-400"
+                    className="mt-2 inline-flex items-center font-medium text-amber-500 hover:underline dark:text-amber-500"
                   >
                     Explore Physics Labs
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </div>
+
               <div className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-slate-800">
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-orange-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-fuchsia-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <div className="absolute -right-2 -bottom-2 h-32 w-32 opacity-10">
-                  <Microscope className="h-full w-full text-pink-500" />
+                  <Microscope className="h-full w-full text-purple-500" />
                 </div>
                 <Image
                   src="/images/biolab.jpg"
@@ -461,10 +463,10 @@ export default function Home() {
                 />
                 <div className="relative z-10 flex flex-col gap-2">
                   <div className="flex items-center gap-2">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-pink-500 to-orange-500 text-white shadow-lg">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-purple-200 to-purple-600 text-white shadow-lg">
                       <Microscope className="h-5 w-5" />
                     </div>
-                    <h3 className="text-2xl font-bold text-pink-600 dark:text-pink-400">
+                    <h3 className="text-2xl font-bold text-purple-500 dark:text-purple-500">
                       Biology
                     </h3>
                   </div>
@@ -474,7 +476,7 @@ export default function Home() {
                   </p>
                   <Link
                     href="/explore/biology"
-                    className="mt-2 inline-flex items-center font-medium text-pink-600 hover:underline dark:text-pink-400"
+                    className="mt-2 inline-flex items-center font-medium text-purple-500 hover:underline dark:text-purple-500"
                   >
                     Explore Biology Labs
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -487,8 +489,6 @@ export default function Home() {
 
         {/* Interactive Elements Section */}
         <section className="relative w-full overflow-hidden py-12 md:py-24 lg:py-32">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-50/80 to-pink-50/80 dark:from-purple-950/80 dark:to-pink-950/80"></div>
-
           <div className="relative z-10 container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -567,8 +567,6 @@ export default function Home() {
 
         {/* About Section */}
         <section id="about" className="relative w-full py-12 md:py-24 lg:py-32">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/80 to-blue-50/80 dark:from-slate-950/80 dark:to-indigo-950/80"></div>
-
           <div className="relative z-10 container px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
@@ -681,8 +679,6 @@ export default function Home() {
           id="contact"
           className="relative w-full overflow-hidden py-12 md:py-24 lg:py-32"
         >
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/80 to-purple-50/80 dark:from-slate-950/80 dark:to-indigo-950/80"></div>
-
           {/* Decorative elements */}
           <div className="animate-blob absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-blue-300 opacity-20 mix-blend-multiply blur-3xl filter"></div>
           <div className="animate-blob animation-delay-4000 absolute top-1/3 right-1/4 h-64 w-64 rounded-full bg-pink-300 opacity-20 mix-blend-multiply blur-3xl filter"></div>
@@ -752,24 +748,12 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="relative w-full overflow-hidden border-t bg-white dark:bg-slate-950">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-blue-50 to-white dark:from-slate-900 dark:to-slate-950"></div>
-
+      <footer className="relative w-full overflow-hidden border-t">
         <div className="container flex flex-col items-center justify-between gap-4 py-10 md:flex-row md:py-6">
           <div className="flex items-center gap-2">
-            <div className="relative flex h-10 w-10 items-center justify-center">
-              <div className="animate-spin-slow absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 opacity-80"></div>
-              <div className="animate-reverse-spin absolute inset-0 rounded-full bg-gradient-to-br from-green-500 via-blue-500 to-purple-500 opacity-80"></div>
-              <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-slate-900">
-                <Atom className="h-5 w-5 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent" />
-              </div>
-            </div>
-            <p className="text-center text-sm leading-loose md:text-left">
-              &copy; {new Date().getFullYear()}{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text font-bold text-transparent dark:from-blue-400 dark:to-violet-400">
-                SciNapse
-              </span>
-              . All rights reserved.
+            <p className="flex items-center gap-x-2 text-center text-sm leading-loose md:text-left">
+              &copy; {new Date().getFullYear()} •
+              <Logo className="h-4.5" />• All rights reserved.
             </p>
           </div>
           <div className="flex gap-4">
