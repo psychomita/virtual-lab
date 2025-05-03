@@ -30,7 +30,7 @@ export function ExperimentLayout({ title, labPath, theory, procedure, simulation
   return (
     <main className="container mx-auto py-8 px-4">
       <div className="flex items-center mb-8">
-        <Link href="/student/simulations/chem">
+        <Link href={labPath}>
           <Button variant="outline" size="sm" className="mr-4">
             <ArrowLeft className="h-4 w-4 mr-2" /> Back
           </Button>

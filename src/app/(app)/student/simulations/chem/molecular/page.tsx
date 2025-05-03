@@ -17,7 +17,7 @@ export default function MolecularStructuresPage() {
   return (
     <ExperimentLayout
       title="Molecular Structures"
-      labPath="/chemistry"
+      labPath="/student/simulations/chem"
       theory={<MolecularTheory />}
       procedure={<MolecularProcedure />}
       simulation={<MolecularStructuresSimulation />}

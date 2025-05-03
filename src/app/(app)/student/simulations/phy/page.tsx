@@ -111,17 +111,6 @@ export default function PhysicsLab() {
           </Card>
         ))}
       </div>
-
-      <div className="mt-12 p-6 bg-amber-50 rounded-lg dark:bg-amber-900/20">
-        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Physics Lab Learning Outcomes</h2>
-        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
-          <li>Understand and apply fundamental physics principles through hands-on virtual experiments</li>
-          <li>Analyze the relationships between different physical variables through data collection and graphing</li>
-          <li>Develop critical thinking skills by comparing experimental results with theoretical predictions</li>
-          <li>Learn to control variables and observe their effects on physical systems</li>
-          <li>Gain confidence in solving physics problems through interactive experimentation</li>
-        </ul>
-      </div>
     </main>
   )
 }

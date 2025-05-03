@@ -59,7 +59,7 @@ export default function ChemistryLab() {
       </div>
 
       <div className="mb-8">
-        <p className="text-lg text-gray-700">
+        <p className="text-lg text-gray-700 dark:text-gray-300">
           Welcome to the Chemistry Virtual Laboratory. Here you can conduct chemical experiments safely through
           interactive simulations. Each experiment includes theory, procedure, simulation, and assessment sections to
           provide a comprehensive learning experience.
@@ -105,17 +105,6 @@ export default function ChemistryLab() {
             </CardFooter>
           </Card>
         ))}
-      </div>
-
-      <div className="mt-12 p-6 bg-green-50 rounded-lg dark:bg-green-900/20">
-        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Chemistry Lab Learning Outcomes</h2>
-        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
-          <li>Understand fundamental chemical principles through virtual experimentation</li>
-          <li>Observe chemical reactions and molecular behavior in a safe environment</li>
-          <li>Develop laboratory skills and techniques applicable to real-world chemistry</li>
-          <li>Analyze the relationships between different chemical variables</li>
-          <li>Apply theoretical knowledge to predict and explain experimental results</li>
-        </ul>
       </div>
     </main>
   )

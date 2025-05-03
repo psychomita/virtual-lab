@@ -13,7 +13,7 @@ export default function TitrationPage() {
   return (
     <ExperimentLayout
       title="Titration Experiment"
-      labPath="/chemistry"
+      labPath="/student/simulations/chem"
       theory={<TitrationTheory />}
       procedure={<TitrationProcedure />}
       simulation={<TitrationSimulation />}
