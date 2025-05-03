@@ -369,7 +369,9 @@ export default function WaveInterferenceSimulation() {
                 <h3 className="font-medium">Wave Type</h3>
                 <Select
                   value={waveType}
-                  onValueChange={(value) => setWaveType(value as any)}
+                  onValueChange={(
+                    value: "sine" | "square" | "sawtooth" | "triangle",
+                  ) => setWaveType(value)}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select wave type" />

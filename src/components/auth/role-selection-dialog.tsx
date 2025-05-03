@@ -51,7 +51,7 @@ export function RoleSelectionDialog({ userId }: { userId: string }) {
     try {
       await updateUserRole(userId, role);
       toast.success("Role updated successfully!");
-      router.push(`/dashboard/${role.toLowerCase()}`);
+      router.push(`${role.toLowerCase()}/dashboard`);
     } catch (error) {
       console.error("Error updating role:", error);
       toast.error("Failed to update role. Please try again.");

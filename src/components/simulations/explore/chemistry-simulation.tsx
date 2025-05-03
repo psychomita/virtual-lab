@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 
 interface ChemistrySimulationProps {
@@ -21,16 +21,19 @@ export default function ChemistrySimulation({
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Map chemicals to colors
-  const chemicalColors = {
-    hcl: "#f8e16c",
-    naoh: "#6cb4f8",
-    h2so4: "#f86c6c",
-  };
+  const chemicalColors = useMemo(
+    () => ({
+      hcl: "#f8e16c",
+      naoh: "#6cb4f8",
+      h2so4: "#f86c6c",
+    }),
+    [],
+  );
 
   // Get current color based on selected chemical
-  const getChemicalColor = () => {
+  const getChemicalColor = useCallback(() => {
     return chemicalColors[chemical as keyof typeof chemicalColors];
-  };
+  }, [chemical, chemicalColors]);
 
   // Animation effect
   useEffect(() => {
@@ -162,7 +165,7 @@ export default function ChemistrySimulation({
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [chemical, concentration, temperature, running]);
+  }, [chemical, concentration, temperature, running, getChemicalColor]);
 
   return (
     <div className="relative">

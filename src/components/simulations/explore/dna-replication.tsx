@@ -128,8 +128,8 @@ export default function DNAReplication() {
         const originalX2 = x + 40 * Math.sin(i * 0.5);
 
         // Draw complementary strand
-        const complementaryX1 = originalX1;
-        const complementaryX2 = originalX2;
+        // const complementaryX1 = originalX1;
+        // const complementaryX2 = originalX2;
 
         // Determine if this segment is unwound
         const isUnwound = i >= unwoundPoint;

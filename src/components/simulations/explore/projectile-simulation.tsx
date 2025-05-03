@@ -209,7 +209,11 @@ export default function ProjectileSimulation({
       }
 
       // Draw information
-      const { maxHeight, range, timeOfFlight } = calculateMaxHeightAndRange();
+      const {
+        maxHeight,
+        range,
+        // timeOfFlight
+      } = calculateMaxHeightAndRange();
 
       ctx.font = "14px Arial";
       ctx.fillStyle = "#333";

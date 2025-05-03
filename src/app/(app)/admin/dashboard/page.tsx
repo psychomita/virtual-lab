@@ -22,7 +22,7 @@ import {
   ShieldCheck,
   UserCheck,
   Users,
-  UserX
+  UserX,
 } from "lucide-react";
 import { useState } from "react";
 

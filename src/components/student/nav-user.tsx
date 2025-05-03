@@ -1,13 +1,13 @@
 "use client";
 
 import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  Sparkles,
+  BellIcon,
+  CreditCardIcon,
+  MoreVerticalIcon,
+  UserCircleIcon,
 } from "lucide-react";
 
+import SignoutButton from "@/components/auth/signout-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -24,16 +24,18 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import SignoutButton from "@/components/auth/signout-button";
 import { User } from "better-auth";
 
 export function NavUser({ user }: { user: User }) {
   const { isMobile } = useSidebar();
 
   // Safely split user name
-  const nameParts = typeof user?.name === "string" ? user.name.split(" ") : [];
-  const firstName = nameParts[0] || "User";
-  const lastName = nameParts[1] || "";
+  const inittials = user.name
+    ? user.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+    : "";
 
   return (
     <SidebarMenu>
@@ -46,46 +48,76 @@ export function NavUser({ user }: { user: User }) {
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage
-                  src={user?.image as string}
-                  alt={user?.name || "User Avatar"}
+                  src={
+                    (user.image as string) ||
+                    `https://avatar.vercel.sh/${user.image}`
+                  }
+                  alt={user.name || "User"}
                 />
-                <AvatarFallback>
-                  {firstName[0] ?? "U"}
-                  {lastName[0] ?? ""}
+                <AvatarFallback className="rounded-lg">
+                  {inittials || "?"}
                 </AvatarFallback>
               </Avatar>
+              <div className="grid flex-1 text-left text-sm leading-tight">
+                <span className="truncate font-medium">
+                  {user.name || "User"}
+                </span>
+                <span className="text-muted-foreground truncate text-xs">
+                  {user.email || "No email provided"}
+                </span>
+              </div>
+              <MoreVerticalIcon className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56" align="start">
-            <DropdownMenuLabel>
-              {firstName} {lastName}
+          <DropdownMenuContent
+            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+            side={isMobile ? "bottom" : "right"}
+            align="end"
+            sideOffset={4}
+          >
+            <DropdownMenuLabel className="p-0 font-normal">
+              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                <Avatar className="h-8 w-8 rounded-lg">
+                  <AvatarImage
+                    src={
+                      (user.image as string) ||
+                      `https://avatar.vercel.sh/${user.image}`
+                    }
+                    alt={user.name || "User"}
+                  />
+                  <AvatarFallback className="rounded-lg">
+                    {inittials}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-medium">
+                    {user.name || "User"}
+                  </span>
+                  <span className="text-muted-foreground truncate text-xs">
+                    {user.email || "No email provided"}
+                  </span>
+                </div>
+              </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Bell className="mr-2 h-4 w-4" />
-                Notifications
+                <UserCircleIcon />
+                Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CreditCard className="mr-2 h-4 w-4" />
+                <CreditCardIcon />
                 Billing
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Sparkles className="mr-2 h-4 w-4" />
-                Referrals
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <BadgeCheck className="mr-2 h-4 w-4" />
-                Upgrades
+                <BellIcon />
+                Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <ChevronsUpDown className="mr-2 h-4 w-4" />
-              Theme
+            <DropdownMenuItem asChild>
+              <SignoutButton />
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <SignoutButton />
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

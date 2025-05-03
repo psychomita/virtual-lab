@@ -78,7 +78,10 @@ export default function ChemistryLab() {
               />
             </CardContent>
             <CardFooter>
-              <Link href={`/student/simulations/chem/${experiment.id}`} className="w-full">
+              <Link
+                href={`/student/simulations/chem/${experiment.id}`}
+                className="w-full"
+              >
                 <Button className="w-full bg-green-500 hover:bg-green-600">
                   Start Experiment
                 </Button>

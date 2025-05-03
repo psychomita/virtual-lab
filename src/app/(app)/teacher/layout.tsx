@@ -44,7 +44,8 @@ export default function StudentLayout({
             </Breadcrumb>
           </div>
           <div className="ml-auto pr-4">
-            <GoogleTranslateDropdown           </div>
+            <GoogleTranslateDropdown />
+          </div>
         </header>
         {children}
       </SidebarInset>

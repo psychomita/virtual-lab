@@ -1,7 +1,25 @@
-// components/GoogleTranslateDropdown.tsx
 "use client";
 
 import { useEffect, useState } from "react";
+
+declare global {
+  interface Window {
+    googleTranslateElementInit?: () => void;
+    google?: {
+      translate?: {
+        TranslateElement?: new (
+          options: {
+            pageLanguage: string;
+            includedLanguages: string;
+            layout: unknown;
+          },
+          elementId: string,
+        ) => void;
+      };
+    };
+  }
+}
+
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -63,7 +81,7 @@ export function GoogleTranslateDropdown() {
         {
           pageLanguage: "en",
           includedLanguages: languages.map((l) => l.code).join(","),
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          layout: 0, // Replace with a valid layout value or remove this line if not needed
         },
         "google_translate_element",
       );

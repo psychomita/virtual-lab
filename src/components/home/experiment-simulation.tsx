@@ -182,7 +182,7 @@ export function ExperimentSimulation() {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [state, isHeating, isCooling, particleColor]);
+  }, [state, isHeating, isCooling, particleColor, temperature]);
 
   // Update state and particle behavior based on temperature
   useEffect(() => {
