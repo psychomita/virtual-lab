@@ -3,16 +3,13 @@
 import Logo, { LogoMark } from "@/components/logo";
 import {
   Atom,
-  BarChart4,
-  BookOpen,
-  ClipboardList,
+  BotIcon,
   FlaskConical,
   Home,
   Leaf,
   Mail,
-  Moon,
   Settings2,
-  TestTube2,
+  TestTube2
 } from "lucide-react";
 import * as React from "react";
 
@@ -34,58 +31,56 @@ const data = {
   navMain: [
     {
       title: "Home",
-      url: "#",
+      url: "/student/dashboard",
       icon: Home,
       isActive: true,
     },
     {
-      title: "Guide",
-      url: "#",
-      icon: BookOpen,
-    },
-    {
       title: "Simulations",
-      url: "#",
+      url: "/student/simulations",
       icon: FlaskConical,
       items: [
         {
           title: "Physics",
-          url: "#",
+          url: "/student/simulations/phy",
           icon: Atom,
         },
         {
           title: "Chemistry",
-          url: "#",
+          url: "/student/simulations/chem",
           icon: TestTube2,
         },
         {
           title: "Biology",
-          url: "#",
+          url: "/student/simulations/bio",
           icon: Leaf,
         },
       ],
     },
     {
-      title: "Assessment",
-      url: "#",
-      icon: ClipboardList,
+      title: "AI Chat Bot",
+      url: "/student/chat",
+      icon: BotIcon,
     },
-    {
-      title: "Progress Report",
-      url: "#",
-      icon: BarChart4,
-    },
+    // {
+    //   title: "Guide",
+    //   url: "#",
+    //   icon: BookOpen,
+    // },
+    // {
+    //   title: "Assessment",
+    //   url: "#",
+    //   icon: ClipboardList,
+    // },
+    // {
+    //   title: "Progress Report",
+    //   url: "#",
+    //   icon: BarChart4,
+    // },
     {
       title: "Settings",
       url: "#",
       icon: Settings2,
-      items: [
-        {
-          title: "Toggle Mode",
-          url: "#",
-          icon: Moon, // You can toggle between Moon and Sun based on current mode
-        },
-      ],
     },
     {
       title: "Contact Us",

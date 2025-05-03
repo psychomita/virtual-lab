@@ -17,6 +17,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { usePathname, useRouter } from "next/navigation";
 
 export function NavMain({
   items,
@@ -32,6 +33,8 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -45,10 +48,30 @@ export function NavMain({
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title}>
+                <SidebarMenuButton
+                  tooltip={item.title}
+                  onClick={() => {
+                    if (item.items) {
+                      return;
+                    }
+                    router.push(item.url);
+                  }}
+                  className={`cursor-pointer ${
+                    item.items
+                      ? "data-[state=open]:bg-accent data-[state=open]:text-accent-foreground"
+                      : pathname === item.url
+                        ? "bg-accent text-accent-foreground"
+                        : "hover:bg-accent hover:text-accent-foreground"
+                  }`}
+                >
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  {item.items && (
+                    <ChevronRight
+                      className="ml-auto h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                      aria-hidden="true"
+                    />
+                  )}
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>

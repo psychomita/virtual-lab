@@ -1,11 +1,13 @@
 "use client";
 
+import { GoogleTranslateDropdown } from "@/components/google-translate";
 import { AIChatbot } from "@/components/home/ai-chatbot";
 import { ChemistrySimulation } from "@/components/home/chemistry-simulation";
 import { FloatingElements } from "@/components/home/floating-elements";
 import { ModeToggle } from "@/components/home/mode-toggle";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth/client";
 import {
   Atom,
   BarChart3,
@@ -27,12 +29,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { GoogleTranslateDropdown } from "@/components/google-translate";
 
 export default function Home() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const session = await authClient.getSession();
+        setIsLoggedIn(!!session.data?.user);
+      } catch (error) {
+        console.error("Error checking login status:", error);
+      }
+    };
+
+    checkLoginStatus();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,21 +108,34 @@ export default function Home() {
             <nav className="flex items-center space-x-2">
               <GoogleTranslateDropdown />
               <ModeToggle />
-              <Button
-                variant="ghost"
-                size="sm"
-                className="hidden cursor-pointer bg-white/80 transition-transform duration-200 hover:bg-white active:scale-95 sm:inline-flex dark:bg-slate-800/80 dark:hover:bg-slate-800"
-                onClick={() => router.push("/login")}
-              >
-                Log in
-              </Button>
-              <Button
-                size="sm"
-                className="hidden cursor-pointer bg-gradient-to-r from-blue-600 to-violet-600 text-white transition-transform duration-200 hover:from-blue-700 hover:to-violet-700 active:scale-95 sm:inline-flex"
-                onClick={() => router.push("/register")}
-              >
-                Get Started
-              </Button>
+              {isLoggedIn ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="hidden cursor-pointer bg-gradient-to-r from-blue-600 to-violet-600 text-white transition-transform duration-200 hover:from-blue-700 hover:to-violet-700 active:scale-95 sm:inline-flex"
+                  onClick={() => router.push("/dashboard")}
+                >
+                  Dashboard
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="hidden cursor-pointer bg-white/80 transition-transform duration-200 hover:bg-white active:scale-95 sm:inline-flex dark:bg-slate-800/80 dark:hover:bg-slate-800"
+                    onClick={() => router.push("/login")}
+                  >
+                    Log in
+                  </Button>
+                  <Button
+                    size="sm"
+                    className="hidden cursor-pointer bg-gradient-to-r from-blue-600 to-violet-600 text-white transition-transform duration-200 hover:from-blue-700 hover:to-violet-700 active:scale-95 sm:inline-flex"
+                    onClick={() => router.push("/register")}
+                  >
+                    Get Started
+                  </Button>
+                </>
+              )}
               <Button
                 variant="ghost"
                 size="icon"

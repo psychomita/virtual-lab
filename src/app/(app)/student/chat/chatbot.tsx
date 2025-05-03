@@ -32,7 +32,7 @@ export default function Chatbox() {
   }, [messages]);
 
   return (
-    <div className="mx-auto flex h-[95vh] w-full max-w-5xl flex-col justify-between px-4 pt-6">
+    <div className="mx-auto flex h-[87vh] w-full max-w-5xl flex-col justify-between px-4 pt-6">
       {/* Chat area */}
       <div className="border-border/40 bg-muted/10 flex-1 space-y-2 overflow-y-auto rounded-lg border p-4 text-sm leading-6 sm:text-base sm:leading-7">
         {messages.length > 0 ? (
