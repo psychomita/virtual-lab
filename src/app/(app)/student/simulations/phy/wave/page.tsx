@@ -21,8 +21,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTheme } from "next-themes";
 
 export default function WaveInterferenceSimulation() {
+  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isRunning, setIsRunning] = useState(true);
   const [time, setTime] = useState(0);
@@ -84,8 +86,18 @@ export default function WaveInterferenceSimulation() {
     const width = canvas.width;
     const dx = 1; // x increment
 
+    // Colors based on theme
+    const gridColor = theme === "dark" ? "#374151" : "#ddd";
+    const axisColor = theme === "dark" ? "#e5e7eb" : "#000";
+    const bgColor = theme === "dark" ? "#1f2937" : "#f9fafb";
+    const textColor = theme === "dark" ? "#e5e7eb" : "#000";
+
+    // Set canvas background
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     // Draw grid
-    ctx.strokeStyle = "#ddd";
+    ctx.strokeStyle = gridColor;
     ctx.lineWidth = 1;
 
     // Horizontal grid lines
@@ -108,7 +120,7 @@ export default function WaveInterferenceSimulation() {
     ctx.beginPath();
     ctx.moveTo(0, centerY);
     ctx.lineTo(width, centerY);
-    ctx.strokeStyle = "#000";
+    ctx.strokeStyle = axisColor;
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -155,7 +167,7 @@ export default function WaveInterferenceSimulation() {
         ctx.lineTo(x, y);
       }
 
-      ctx.strokeStyle = "#3b82f6"; // Blue
+      ctx.strokeStyle = "#3b82f6"; // Blue (same in both themes)
       ctx.lineWidth = 2;
       ctx.stroke();
     }
@@ -172,7 +184,7 @@ export default function WaveInterferenceSimulation() {
         ctx.lineTo(x, y);
       }
 
-      ctx.strokeStyle = "#ef4444"; // Red
+      ctx.strokeStyle = "#ef4444"; // Red (same in both themes)
       ctx.lineWidth = 2;
       ctx.stroke();
     }
@@ -203,7 +215,7 @@ export default function WaveInterferenceSimulation() {
         ctx.lineTo(x, y);
       }
 
-      ctx.strokeStyle = "#8b5cf6"; // Purple
+      ctx.strokeStyle = "#8b5cf6"; // Purple (same in both themes)
       ctx.lineWidth = 3;
       ctx.stroke();
     }
@@ -252,6 +264,7 @@ export default function WaveInterferenceSimulation() {
     // Add legend
     ctx.font = "12px Arial";
     ctx.textAlign = "left";
+    ctx.fillStyle = textColor;
 
     if (showWave1) {
       ctx.fillStyle = "#3b82f6";
@@ -280,6 +293,7 @@ export default function WaveInterferenceSimulation() {
     showResultant,
     waveType,
     showPhaseAnimation,
+    theme, // Add theme to dependencies
   ]);
 
   // Reset the simulation
@@ -325,7 +339,7 @@ export default function WaveInterferenceSimulation() {
                 ref={canvasRef}
                 width={600}
                 height={400}
-                className="rounded-md border bg-gray-50"
+                className="rounded-md border"
               />
 
               <div className="mt-4 flex gap-4">
@@ -346,8 +360,8 @@ export default function WaveInterferenceSimulation() {
                 </Button>
               </div>
 
-              <div className="mt-4 w-full text-sm text-gray-500">
-                <div className="rounded-md bg-blue-50 p-2">
+              <div className="mt-4 w-full text-sm">
+                <div className="rounded-md bg-blue-50 p-2 dark:bg-blue-900/50">
                   <span className="font-medium">Interference Type: </span>
                   <span>{getInterferenceType()}</span>
                 </div>
@@ -399,7 +413,9 @@ export default function WaveInterferenceSimulation() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <label className="text-sm font-medium">Amplitude</label>
-                    <span className="text-sm text-gray-500">{amplitude1}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {amplitude1}
+                    </span>
                   </div>
                   <Slider
                     value={[amplitude1]}
@@ -414,7 +430,7 @@ export default function WaveInterferenceSimulation() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <label className="text-sm font-medium">Frequency</label>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-muted-foreground">
                       {frequency1.toFixed(2)} Hz
                     </span>
                   </div>
@@ -431,7 +447,7 @@ export default function WaveInterferenceSimulation() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <label className="text-sm font-medium">Phase</label>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-muted-foreground">
                       {((phase1 * 180) / Math.PI).toFixed(0)}°
                     </span>
                   </div>
@@ -462,7 +478,9 @@ export default function WaveInterferenceSimulation() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <label className="text-sm font-medium">Amplitude</label>
-                    <span className="text-sm text-gray-500">{amplitude2}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {amplitude2}
+                    </span>
                   </div>
                   <Slider
                     value={[amplitude2]}
@@ -477,7 +495,7 @@ export default function WaveInterferenceSimulation() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <label className="text-sm font-medium">Frequency</label>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-muted-foreground">
                       {frequency2.toFixed(2)} Hz
                     </span>
                   </div>
@@ -494,7 +512,7 @@ export default function WaveInterferenceSimulation() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <label className="text-sm font-medium">Phase</label>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-muted-foreground">
                       {((phase2 * 180) / Math.PI).toFixed(0)}°
                     </span>
                   </div>
@@ -534,12 +552,12 @@ export default function WaveInterferenceSimulation() {
                 </div>
               </div>
 
-              <div className="rounded-md bg-blue-50 p-4">
+              <div className="rounded-md bg-blue-50 p-4 dark:bg-blue-900/50">
                 <h3 className="mb-2 font-medium">Wave Interference Theory</h3>
-                <p className="mb-2 text-sm text-gray-700">
+                <p className="mb-2 text-sm text-muted-foreground">
                   When two waves overlap, they combine through superposition:
                 </p>
-                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-700">
+                <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                   <li>
                     <strong>Constructive interference</strong> occurs when waves
                     are in phase (0° or 360°), amplifying each other

@@ -1,9 +1,9 @@
 "use client";
 
 import type React from "react";
-
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import {
@@ -33,6 +33,7 @@ type CelestialBody = {
 };
 
 export default function GravitySimulation() {
+  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [bodies, setBodies] = useState<CelestialBody[]>([
@@ -189,8 +190,9 @@ export default function GravitySimulation() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Clear canvas with theme-appropriate background
+    ctx.fillStyle = theme === 'dark' ? '#0f172a' : '#f8fafc';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw trails
     if (showTrails) {
@@ -220,7 +222,7 @@ export default function GravitySimulation() {
 
       // Highlight selected body
       if (body.id === selectedBody) {
-        ctx.strokeStyle = "#ffffff";
+        ctx.strokeStyle = theme === 'dark' ? '#ffffff' : '#000000';
         ctx.lineWidth = 2;
         ctx.stroke();
       }
@@ -271,7 +273,7 @@ export default function GravitySimulation() {
       }
 
       // Draw body name
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = theme === 'dark' ? '#ffffff' : '#000000';
       ctx.font = "12px Arial";
       ctx.textAlign = "center";
       ctx.fillText(
@@ -280,7 +282,7 @@ export default function GravitySimulation() {
         body.position.y - body.radius - 5,
       );
     }
-  }, [bodies, selectedBody, showTrails, showVelocityVectors, showForceVectors]);
+  }, [bodies, selectedBody, showTrails, showVelocityVectors, showForceVectors, theme]);
 
   // Handle canvas click to select bodies
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -434,7 +436,7 @@ export default function GravitySimulation() {
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <Card className="h-full w-full">
+          <Card className="w-full h-full bg-background">
             <CardHeader>
               <CardTitle>Simulation</CardTitle>
               <CardDescription>
@@ -446,11 +448,11 @@ export default function GravitySimulation() {
                 ref={canvasRef}
                 width={600}
                 height={400}
-                className="rounded-md border bg-gray-900"
+                className="border rounded-md dark:border-gray-700 bg-background"
                 onClick={handleCanvasClick}
               />
 
-              <div className="mt-4 flex gap-4">
+              <div className="flex gap-4 mt-4">
                 <Button
                   onClick={() => setIsRunning(!isRunning)}
                   className="bg-blue-500 hover:bg-blue-600"
@@ -468,8 +470,8 @@ export default function GravitySimulation() {
                 </Button>
               </div>
 
-              <div className="mt-4 text-sm text-gray-500">
-                <div className="mb-1 flex justify-between">
+              <div className="mt-4 text-sm text-muted-foreground w-full">
+                <div className="flex justify-between mb-1">
                   <span>Time Scale:</span>
                   <span>{timeScale}x</span>
                 </div>
@@ -486,7 +488,7 @@ export default function GravitySimulation() {
         </div>
 
         <div>
-          <Card>
+          <Card className="bg-background">
             <CardHeader>
               <CardTitle>Controls</CardTitle>
               <CardDescription>
@@ -543,13 +545,14 @@ export default function GravitySimulation() {
                     id="newBodyName"
                     value={newBodyName}
                     onChange={(e) => setNewBodyName(e.target.value)}
+                    className="dark:border-gray-700"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <Label htmlFor="newBodyMass">Mass</Label>
-                    <span className="text-sm text-gray-500">{newBodyMass}</span>
+                    <span className="text-sm text-muted-foreground">{newBodyMass}</span>
                   </div>
                   <Slider
                     id="newBodyMass"
@@ -592,13 +595,14 @@ export default function GravitySimulation() {
                       onChange={(e) =>
                         updateSelectedBody("name", e.target.value)
                       }
+                      className="dark:border-gray-700"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <Label htmlFor="bodyMass">Mass</Label>
-                      <span className="text-sm text-gray-500">
+                      <span className="text-sm text-muted-foreground">
                         {getSelectedBodyDetails()?.mass}
                       </span>
                     </div>
@@ -617,7 +621,7 @@ export default function GravitySimulation() {
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <Label htmlFor="bodyVelocityX">Velocity X</Label>
-                      <span className="text-sm text-gray-500">
+                      <span className="text-sm text-muted-foreground">
                         {getSelectedBodyDetails()?.velocity.x.toFixed(2)}
                       </span>
                     </div>
@@ -636,7 +640,7 @@ export default function GravitySimulation() {
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <Label htmlFor="bodyVelocityY">Velocity Y</Label>
-                      <span className="text-sm text-gray-500">
+                      <span className="text-sm text-muted-foreground">
                         {getSelectedBodyDetails()?.velocity.y.toFixed(2)}
                       </span>
                     </div>
@@ -675,16 +679,16 @@ export default function GravitySimulation() {
                 </div>
               )}
 
-              <div className="rounded-md bg-blue-50 p-4">
+              <div className="rounded-md bg-blue-50 dark:bg-blue-900/20 p-4">
                 <h3 className="mb-2 font-medium">Gravity Simulation</h3>
-                <p className="mb-2 text-sm text-gray-700">
+                <p className="mb-2 text-sm text-muted-foreground">
                   This simulation demonstrates Newton's law of universal
                   gravitation:
                 </p>
                 <div className="my-2 text-center font-mono">
                   F = G × (m₁ × m₂) / r²
                 </div>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Where F is the gravitational force, G is the gravitational
                   constant, m₁ and m₂ are the masses of the objects, and r is
                   the distance between them.

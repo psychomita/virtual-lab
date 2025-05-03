@@ -1,71 +1,74 @@
-import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import Link from "next/link"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
 
 export default function ChemistryLab() {
   const experiments = [
     {
       id: "titration",
       title: "Titration Experiment",
-      description:
-        "Perform acid-base titrations and observe color changes with different indicators",
-      image: "/images/titration.jpg",
+      description: "Perform acid-base titrations and observe color changes with different indicators",
+      image: "/placeholder.svg?height=100&width=200",
+      tags: ["Acid-Base", "Volumetric Reaction", "Indicators"],
+      difficulty: "Intermediate",
     },
     {
       id: "molecular",
       title: "Molecular Structures",
-      description:
-        "Build and visualize 3D molecular structures and understand chemical bonding",
-      image: "/images/molecular.jpg",
+      description: "Build and visualize 3D molecular structures and understand chemical bonding",
+      image: "/placeholder.svg?height=100&width=200",
+      tags: ["Molecular Geometry", "Bonding", "3D Visualization"],
+      difficulty: "Beginner",
     },
     {
       id: "reactions",
       title: "Chemical Reactions",
-      description:
-        "Mix virtual chemicals and observe different types of reactions",
-      image: "/images/reactions.jpg",
+      description: "Mix virtual chemicals and observe different types of reactions",
+      image: "/placeholder.svg?height=100&width=200",
+      tags: ["Reactions", "Kinetics", "Thermodynamics"],
+      difficulty: "Intermediate",
     },
     {
       id: "ph",
       title: "pH Measurement",
-      description:
-        "Test the pH of various solutions and understand the pH scale",
-      image: "/images/ph.jpg",
+      description: "Test the pH of various solutions and understand the pH scale",
+      image: "/placeholder.svg?height=100&width=200",
+      tags: ["Acidity", "Alkalinity", "pH Scale", "Indicators"],
+      difficulty: "Beginner",
     },
     {
       id: "gas-laws",
       title: "Gas Laws",
-      description:
-        "Explore the relationships between pressure, volume, temperature, and amount of gas",
-      image: "/images/gas-laws.jpg",
+      description: "Explore the relationships between pressure, volume, temperature, and amount of gas",
+      image: "/placeholder.svg?height=100&width=200",
+      tags: ["Gases", "Pressure", "Temperature", "Volume"],
+      difficulty: "Advanced",
     },
-  ];
+  ]
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <div className="mb-8 flex items-center">
+    <main className="container mx-auto py-8 px-4">
+      <div className="flex items-center mb-8">
         <Link href="/student/dashboard">
           <Button variant="outline" size="sm" className="mr-4">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back
+            <ArrowLeft className="h-4 w-4 mr-2" /> Back
           </Button>
         </Link>
         <h1 className="text-3xl font-bold">Chemistry Laboratory</h1>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-8">
+        <p className="text-lg text-gray-700">
+          Welcome to the Chemistry Virtual Laboratory. Here you can conduct chemical experiments safely through
+          interactive simulations. Each experiment includes theory, procedure, simulation, and assessment sections to
+          provide a comprehensive learning experience.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {experiments.map((experiment) => (
-          <Card
-            key={experiment.id}
-            className="transition-shadow hover:shadow-md"
-          >
+          <Card key={experiment.id} className="hover:shadow-md transition-shadow">
             <CardHeader>
               <CardTitle>{experiment.title}</CardTitle>
               <CardDescription>{experiment.description}</CardDescription>
@@ -74,22 +77,46 @@ export default function ChemistryLab() {
               <img
                 src={experiment.image || "/placeholder.svg"}
                 alt={experiment.title}
-                className="h-32 w-full rounded-md bg-green-100 object-cover"
+                className="w-full h-32 object-cover rounded-md bg-green-100"
               />
+              <div className="mt-4 flex flex-wrap gap-2">
+                {experiment.tags.map((tag) => (
+                  <span key={tag} className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                    {tag}
+                  </span>
+                ))}
+                <span
+                  className={`ml-auto px-2 py-1 text-xs rounded-full ${
+                    experiment.difficulty === "Beginner"
+                      ? "bg-green-100 text-green-800"
+                      : experiment.difficulty === "Intermediate"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-red-100 text-red-800"
+                  }`}
+                >
+                  {experiment.difficulty}
+                </span>
+              </div>
             </CardContent>
             <CardFooter>
-              <Link
-                href={`/student/simulations/chem/${experiment.id}`}
-                className="w-full"
-              >
-                <Button className="w-full bg-green-500 hover:bg-green-600">
-                  Start Experiment
-                </Button>
+              <Link href={`/student/simulations/chem/${experiment.id}`} className="w-full">
+                <Button className="w-full bg-green-500 hover:bg-green-600">Start Experiment</Button>
               </Link>
             </CardFooter>
           </Card>
         ))}
       </div>
+
+      <div className="mt-12 p-6 bg-green-50 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4">Chemistry Lab Learning Outcomes</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Understand fundamental chemical principles through virtual experimentation</li>
+          <li>Observe chemical reactions and molecular behavior in a safe environment</li>
+          <li>Develop laboratory skills and techniques applicable to real-world chemistry</li>
+          <li>Analyze the relationships between different chemical variables</li>
+          <li>Apply theoretical knowledge to predict and explain experimental results</li>
+        </ul>
+      </div>
     </main>
-  );
+  )
 }

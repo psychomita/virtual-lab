@@ -243,9 +243,9 @@ export default function Home() {
                   <Button
                     size="lg"
                     variant="outline"
-                    onClick={() => router.push("/login")}
+                    onClick={() => router.push("/#disciplines")}
                   >
-                    Sign in
+                    Learn More
                   </Button>
                 </div>
 
