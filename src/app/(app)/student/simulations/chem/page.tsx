@@ -9,40 +9,40 @@ export default function ChemistryLab() {
       id: "titration",
       title: "Titration Experiment",
       description: "Perform acid-base titrations and observe color changes with different indicators",
-      image: "/placeholder.svg?height=100&width=200",
-      tags: ["Acid-Base", "Volumetric Reaction", "Indicators"],
+      image: "/images/titration.jpg",
+      tags: ["Acid", "Base", "Indicators"],
       difficulty: "Intermediate",
     },
     {
       id: "molecular",
       title: "Molecular Structures",
       description: "Build and visualize 3D molecular structures and understand chemical bonding",
-      image: "/placeholder.svg?height=100&width=200",
-      tags: ["Molecular Geometry", "Bonding", "3D Visualization"],
+      image: "/images/molecular.jpg",
+      tags: ["Molecule", "Bonding", "Atom"],
       difficulty: "Beginner",
     },
     {
       id: "reactions",
       title: "Chemical Reactions",
       description: "Mix virtual chemicals and observe different types of reactions",
-      image: "/placeholder.svg?height=100&width=200",
-      tags: ["Reactions", "Kinetics", "Thermodynamics"],
+      image: "/images/reactions.jpg",
+      tags: ["Reactions", "Kinetics", "Heat"],
       difficulty: "Intermediate",
     },
     {
       id: "ph",
       title: "pH Measurement",
       description: "Test the pH of various solutions and understand the pH scale",
-      image: "/placeholder.svg?height=100&width=200",
-      tags: ["Acidity", "Alkalinity", "pH Scale", "Indicators"],
+      image: "/images/ph.jpg",
+      tags: ["Acidity", "Alkalinity", "Indicators"],
       difficulty: "Beginner",
     },
     {
       id: "gas-laws",
       title: "Gas Laws",
       description: "Explore the relationships between pressure, volume, temperature, and amount of gas",
-      image: "/placeholder.svg?height=100&width=200",
-      tags: ["Gases", "Pressure", "Temperature", "Volume"],
+      image: "/images/gas-laws.jpg",
+      tags: ["Pressure", "Temperature", "Volume"],
       difficulty: "Advanced",
     },
   ]
@@ -81,17 +81,17 @@ export default function ChemistryLab() {
               />
               <div className="mt-4 flex flex-wrap gap-2">
                 {experiment.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                  <span key={tag} className="px-2 py-1 bg-emerald-950 text-emerald-500 text-xs rounded-full">
                     {tag}
                   </span>
                 ))}
                 <span
                   className={`ml-auto px-2 py-1 text-xs rounded-full ${
                     experiment.difficulty === "Beginner"
-                      ? "bg-green-100 text-green-800"
+                      ? "text-green-100 bg-green-800"
                       : experiment.difficulty === "Intermediate"
-                        ? "bg-yellow-100 text-yellow-800"
-                        : "bg-red-100 text-red-800"
+                        ? "text-yellow-100 bg-yellow-800"
+                        : "text-red-100 bg-red-800"
                   }`}
                 >
                   {experiment.difficulty}

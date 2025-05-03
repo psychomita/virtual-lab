@@ -524,7 +524,7 @@ export default function PendulumSimulation() {
                   <div className="flex gap-4 mt-4">
                     <Button
                       onClick={() => setIsRunning(!isRunning)}
-                      className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800"
+                      className="bg-amber-500 hover:bg-amber-600 dark:bg-amber-500 dark:hover:bg-amber-600"
                     >
                       {isRunning ? <Pause className="mr-2 h-4 w-4" /> : <Play className="mr-2 h-4 w-4" />}
                       {isRunning ? "Pause" : "Start"}

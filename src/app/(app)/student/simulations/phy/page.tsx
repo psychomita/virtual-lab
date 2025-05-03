@@ -34,7 +34,7 @@ export default function PhysicsLab() {
       title: "Wave Interference",
       description: "Visualize wave interference patterns and understand superposition",
       image: "/images/wave.jpg",
-      tags: ["Waves", "Interference", "Superposition"],
+      tags: ["Wave", "Interference", "Sine"],
       difficulty: "Intermediate",
     },
     {
@@ -42,7 +42,7 @@ export default function PhysicsLab() {
       title: "Gravity Simulation",
       description: "Observe gravitational interactions between multiple bodies",
       image: "/images/gravity.webp",
-      tags: ["Gravity", "Orbital Mechanics", "Newton's Laws"],
+      tags: ["Gravity", "Orbit", "Newton's Laws"],
       difficulty: "Advanced",
     },
   ]

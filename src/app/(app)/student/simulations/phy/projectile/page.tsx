@@ -265,7 +265,69 @@ export default function ProjectileMotionSimulation() {
       correctAnswer: "45°",
       explanation: "45° gives maximum range because sin(2θ) reaches its peak value at θ=45°."
     },
-    // ... (rest of the assessment questions remain the same)
+    {
+      id: "projectile-q2",
+      question: "Doubling initial velocity affects range by:",
+      options: ["Doubling", "Quadrupling", "No change", "Square root"],
+      correctAnswer: "Quadrupling",
+      explanation: "Range is proportional to velocity squared (R ∝ v₀²)."
+    },
+    {
+      id: "projectile-q3",
+      question: "Which doesn't affect time of flight?",
+      options: ["Initial velocity", "Launch angle", "Gravity", "Mass"],
+      correctAnswer: "Mass",
+      explanation: "Time depends on velocity, angle, and gravity but not mass."
+    },
+    {
+      id: "projectile-q4",
+      question: "Angles that give same range are called:",
+      options: ["Supplementary", "Complementary", "Opposite", "Equal"],
+      correctAnswer: "Complementary",
+      explanation: "Complementary angles (summing to 90°) give same range."
+    },
+    {
+      id: "projectile-q5",
+      question: "At peak height, vertical velocity is:",
+      options: ["Maximum", "Zero", "Equal to horizontal", "Minimum"],
+      correctAnswer: "Zero",
+      explanation: "Vertical velocity momentarily becomes zero at peak height."
+    },
+    {
+      id: "projectile-q6",
+      question: "Horizontal velocity during flight:",
+      options: ["Increases", "Decreases", "Constant", "Varies"],
+      correctAnswer: "Constant",
+      explanation: "With no air resistance, horizontal velocity remains constant."
+    },
+    {
+      id: "projectile-q7",
+      question: "Increasing gravity affects time of flight by:",
+      options: ["Increasing", "Decreasing", "No effect", "Depends"],
+      correctAnswer: "Decreasing",
+      explanation: "Greater gravity reduces time of flight (t ∝ 1/√g)."
+    },
+    {
+      id: "projectile-q8",
+      question: "Trajectory shape is:",
+      options: ["Circular", "Parabolic", "Linear", "Elliptical"],
+      correctAnswer: "Parabolic",
+      explanation: "Under constant gravity, path follows a parabola."
+    },
+    {
+      id: "projectile-q9",
+      question: "Maximum height is achieved when:",
+      options: ["Vertical velocity=0", "Horizontal velocity=0", "Angle=90°", "Time=0"],
+      correctAnswer: "Vertical velocity=0",
+      explanation: "Peak occurs when vertical component of velocity becomes zero."
+    },
+    {
+      id: "projectile-q10",
+      question: "Initial height affects:",
+      options: ["Only range", "Only max height", "Both", "Neither"],
+      correctAnswer: "Both",
+      explanation: "Greater initial height increases both range and maximum height."
+    }
   ]
 
   // Assessment Component
@@ -406,7 +468,7 @@ export default function ProjectileMotionSimulation() {
                   <div className="flex gap-4 mt-4">
                     <Button
                       onClick={() => setIsRunning(!isRunning)}
-                      className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800"
+                      className="bg-amber-500 hover:bg-amber-600 dark:bg-amber-500 dark:hover:bg-amber-600"
                       disabled={isRunning}
                     >
                       {isRunning ? <Pause className="mr-2 h-4 w-4" /> : <Play className="mr-2 h-4 w-4" />}

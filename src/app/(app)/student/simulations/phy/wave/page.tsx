@@ -345,7 +345,7 @@ export default function WaveInterferenceSimulation() {
               <div className="mt-4 flex gap-4">
                 <Button
                   onClick={() => setIsRunning(!isRunning)}
-                  className="bg-blue-500 hover:bg-blue-600"
+                  className="bg-amber-500 hover:bg-amber-600"
                 >
                   {isRunning ? (
                     <Pause className="mr-2 h-4 w-4" />
@@ -361,7 +361,7 @@ export default function WaveInterferenceSimulation() {
               </div>
 
               <div className="mt-4 w-full text-sm">
-                <div className="rounded-md bg-blue-50 p-2 dark:bg-blue-900/50">
+                <div className="rounded-md bg-amber-950 p-2 dark:bg-amber-950">
                   <span className="font-medium">Interference Type: </span>
                   <span>{getInterferenceType()}</span>
                 </div>
@@ -552,7 +552,7 @@ export default function WaveInterferenceSimulation() {
                 </div>
               </div>
 
-              <div className="rounded-md bg-blue-50 p-4 dark:bg-blue-900/50">
+              <div className="rounded-md bg-amber-950 p-4 dark:bg-amber-950">
                 <h3 className="mb-2 font-medium">Wave Interference Theory</h3>
                 <p className="mb-2 text-sm text-muted-foreground">
                   When two waves overlap, they combine through superposition:

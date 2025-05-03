@@ -455,7 +455,7 @@ export default function GravitySimulation() {
               <div className="flex gap-4 mt-4">
                 <Button
                   onClick={() => setIsRunning(!isRunning)}
-                  className="bg-blue-500 hover:bg-blue-600"
+                  className="bg-amber-500 hover:bg-amber-600"
                 >
                   {isRunning ? (
                     <Pause className="mr-2 h-4 w-4" />
@@ -679,7 +679,7 @@ export default function GravitySimulation() {
                 </div>
               )}
 
-              <div className="rounded-md bg-blue-50 dark:bg-blue-900/20 p-4">
+              <div className="rounded-md bg-amber-950 dark:bg-amber-950 p-4">
                 <h3 className="mb-2 font-medium">Gravity Simulation</h3>
                 <p className="mb-2 text-sm text-muted-foreground">
                   This simulation demonstrates Newton's law of universal

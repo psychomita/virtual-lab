@@ -684,7 +684,7 @@ function CircuitSimulation() {
               />
 
               <div className="flex flex-wrap gap-2 mt-4 justify-center">
-                <Button onClick={addComponent} className="bg-blue-500 hover:bg-blue-600">
+                <Button onClick={addComponent} className="bg-amber-500 hover:bg-amber-600">
                   <Plus className="mr-2 h-4 w-4" />
                   Add {componentProps[selectedComponentType].label}
                 </Button>
