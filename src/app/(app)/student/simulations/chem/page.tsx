@@ -107,9 +107,9 @@ export default function ChemistryLab() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-green-50 rounded-lg">
-        <h2 className="text-2xl font-bold mb-4">Chemistry Lab Learning Outcomes</h2>
-        <ul className="list-disc pl-6 space-y-2">
+      <div className="mt-12 p-6 bg-green-50 rounded-lg dark:bg-green-900/20">
+        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Chemistry Lab Learning Outcomes</h2>
+        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
           <li>Understand fundamental chemical principles through virtual experimentation</li>
           <li>Observe chemical reactions and molecular behavior in a safe environment</li>
           <li>Develop laboratory skills and techniques applicable to real-world chemistry</li>
