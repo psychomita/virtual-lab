@@ -433,7 +433,7 @@ export default function Home() {
                     world through vibrant experiments.
                   </p>
                   <Link
-                    href="/explore/chemistry"
+                    href="/register"
                     className="mt-2 inline-flex items-center font-medium text-emerald-500 hover:underline dark:text-emerald-500"
                   >
                     Explore Chemistry Labs
@@ -468,7 +468,7 @@ export default function Home() {
                     through dynamic, interactive simulations.
                   </p>
                   <Link
-                    href="/explore/physics"
+                    href="/register"
                     className="mt-2 inline-flex items-center font-medium text-amber-500 hover:underline dark:text-amber-500"
                   >
                     Explore Physics Labs
@@ -503,7 +503,7 @@ export default function Home() {
                     ecological systems with vibrant visualizations.
                   </p>
                   <Link
-                    href="/explore/biology"
+                    href="/register"
                     className="mt-2 inline-flex items-center font-medium text-purple-500 hover:underline dark:text-purple-500"
                   >
                     Explore Biology Labs
