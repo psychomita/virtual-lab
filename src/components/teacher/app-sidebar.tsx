@@ -122,7 +122,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        {/* Removed NavProjects since we don't need it in the new structure */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={userData} />
