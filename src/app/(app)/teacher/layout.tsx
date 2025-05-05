@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/student/app-sidebar";
+import { AppSidebar } from "@/components/teacher/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
