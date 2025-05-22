@@ -9,12 +9,12 @@
 
 ## ✨ Key Features
 
-* 🔬 **Realistic Virtual Experiments** — Perform simulations in physics, chemistry, and more
-* 🧠 **Interactive & Intuitive Interface** — Navigate experiments step-by-step with guided actions
-* 📊 **Dynamic Visual Feedback** — Watch outcomes evolve in real-time based on your actions
-* 💻 **No Installation Needed** — Completely web-based and responsive across devices
-* 📚 **Student-Friendly Flow** — Designed to enhance remote and hybrid learning
-* 🚀 **Optimized for Speed & UX** — Built with Bun, Next.js, and styled via Tailwind
+* 🔬 Realistic Virtual Experiments — Perform simulations in physics, chemistry, and more
+* 🧠 Interactive & Intuitive Interface — Navigate experiments step-by-step with guided actions
+* 📊 Dynamic Visual Feedback — Watch outcomes evolve in real-time based on your actions
+* 🤖 AI Chatbot Support — Get instant help and explanations through an integrated intelligent assistant
+* 🌐 Multilingual Translation — Access the platform in multiple languages for wider accessibility
+* 📚 Student-Friendly Flow — Designed to enhance remote and hybrid learning
 
 ---
 
