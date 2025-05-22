@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Scinapse: *"Where Science Meets Curiosity*"
 
-## Getting Started
+[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-000?logo=next.js\&logoColor=white)](https://nextjs.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Science Laboratory](https://img.shields.io/badge/Domain-Science%20Laboratory-blue)](#)
 
-First, run the development server:
+**Scinapse** is an immersive virtual science lab experience designed to bring hands-on experiments to the digital classroom. Developed during the **Smart Bengal Hackathon 2025** by **Team Sypher**, Scinapse enables students and educators to conduct interactive simulations of real-world science experiments—all from the browser.
+
+---
+
+## ✨ Key Features
+
+* 🔬 **Realistic Virtual Experiments** — Perform simulations in physics, chemistry, and more
+* 🧠 **Interactive & Intuitive Interface** — Navigate experiments step-by-step with guided actions
+* 📊 **Dynamic Visual Feedback** — Watch outcomes evolve in real-time based on your actions
+* 💻 **No Installation Needed** — Completely web-based and responsive across devices
+* 📚 **Student-Friendly Flow** — Designed to enhance remote and hybrid learning
+* 🚀 **Optimized for Speed & UX** — Built with Bun, Next.js, and styled via Tailwind
+
+---
+
+## ⚙️ Built With
+
+* **Next.js** – React-based framework for fast, scalable applications
+* **TypeScript** – Strongly typed code for better safety and DX
+* **Tailwind CSS** – Utility-first styling for fast, responsive UI
+* **BetterAuth** – Authentication and access management
+* **Bun** – Ultra-fast JavaScript/TypeScript runtime and package manager
+* **Vercel** – Seamless deployment and hosting
+* **Figma** – UI/UX prototyping and design system
+
+---
+
+## 🚀 Getting Started
+
+To run Scinapse locally, ensure you have **Bun** installed:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you're using npm:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then visit `http://localhost:3000` in your browser.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📸 Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Screenshot 2025-05-22 123259](https://github.com/user-attachments/assets/95d31a29-72d5-4788-8927-b951c90c4f8a)
+![Screenshot 2025-05-22 123116](https://github.com/user-attachments/assets/03833819-c6b4-42b2-89d7-6565bb2e56bc)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🏁 Project Status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Scinapse is in active development, with plans to expand the experiment library, add collaborative features, and enhance intelligent feedback systems for autonomous learning.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
