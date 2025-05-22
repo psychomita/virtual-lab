@@ -9,12 +9,12 @@
 
 ## ✨ Key Features
 
-* 🔬 Realistic Virtual Experiments — Perform simulations in physics, chemistry, and more
-* 🧠 Interactive & Intuitive Interface — Navigate experiments step-by-step with guided actions
-* 📊 Dynamic Visual Feedback — Watch outcomes evolve in real-time based on your actions
-* 🤖 AI Chatbot Support — Get instant help and explanations through an integrated intelligent assistant
-* 🌐 Multilingual Translation — Access the platform in multiple languages for wider accessibility
-* 📚 Student-Friendly Flow — Designed to enhance remote and hybrid learning
+* 🔬 **Realistic Virtual Experiments** — Perform simulations in physics, chemistry, and more
+* 🧠 **Interactive & Intuitive Interface** — Navigate experiments step-by-step with guided actions
+* 📊 **Dynamic Visual Feedback** — Watch outcomes evolve in real-time based on your actions
+* 🤖 **AI Chatbot Support** — Get instant help and explanations through an integrated intelligent assistant
+* 🌐 **Multilingual Translation** — Access the platform in multiple languages for wider accessibility
+* 📚 **Student-Friendly Flow** — Designed to enhance remote and hybrid learning
 
 ---
 
@@ -53,7 +53,6 @@ Then visit `http://localhost:3000` in your browser.
 ## 📸 Screenshots
 
 ![Screenshot 2025-05-22 123259](https://github.com/user-attachments/assets/95d31a29-72d5-4788-8927-b951c90c4f8a)
-![Screenshot 2025-05-22 123116](https://github.com/user-attachments/assets/03833819-c6b4-42b2-89d7-6565bb2e56bc)
 
 ---
 
