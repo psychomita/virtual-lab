@@ -3,7 +3,7 @@
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-000?logo=next.js&logoColor=white)](https://nextjs.org) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![Virtual Science Laboratory](https://img.shields.io/badge/🔭-Virtual%20Science%20Laboratory-red)](#) [![Physics](https://img.shields.io/badge/Physics-⚛️-yellow)](#) [![Chemistry](https://img.shields.io/badge/Chemistry-🧪-blue)](#) [![Biology](https://img.shields.io/badge/Biology-🧬-purple)](#)
 
 
-**Scinapse** is an immersive virtual science lab experience designed to bring hands-on experiments to the digital classroom. Developed during the **Smart Bengal Hackathon 2025** by **Team Sypher**. Scinapse enables students and educators to conduct interactive simulations of real-world science experiments—all from the browser.
+**Scinapse** is an immersive virtual science lab experience designed to bring hands-on experiments to the digital classroom. Developed during the **Smart Bengal Hackathon 2025** by **Team Sypher**, this platform enables students and educators to conduct interactive simulations of real-world science experiments—all from the browser.
 
 ---
 
